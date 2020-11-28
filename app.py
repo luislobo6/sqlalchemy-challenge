@@ -221,7 +221,7 @@ def range(start,end):
     # Get the average of temperature from the date and above
     avg_temp = (
         session
-        .query(func.min(Measurement.tobs))
+        .query(func.avg(Measurement.tobs))
         .filter(and_(Measurement.date >= start, Measurement.date <= end))
         .all()
     )
